@@ -17,6 +17,7 @@ defmodule AuctionUmbrella.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 end

@@ -4,7 +4,8 @@ defmodule AuctionWeb.UserController do
 
   def show(conn, %{"id" => id}) do
     user = Auction.get_user(id)
-    render(conn, "show.html", user: user)
+    bids = Auction.get_bids_for_users(user)
+    render(conn, "show.html", user: user, bids: bids)
   end
 
   def new(conn, _params) do
@@ -19,7 +20,7 @@ defmodule AuctionWeb.UserController do
     end
   end
 
-  defp prevent_unauthorized_access(conn,_opts) do
+  defp prevent_unauthorized_access(conn, _opts) do
     current_user = Map.get(conn.assigns, :current_user)
 
     requested_user_id =

@@ -68,6 +68,7 @@ defmodule AuctionWeb do
       import AuctionWeb.ErrorHelpers
       import AuctionWeb.Gettext
       alias AuctionWeb.Router.Helpers, as: Routes
+      import AuctionWeb.GlobalHelpers
     end
   end
 
